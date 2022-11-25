@@ -7,6 +7,7 @@ public class Solution {
 		int[] array = new int[] { 3, 0, 6, 1, 5 };
 		int result = test.solution(array);
 
+		// aaa
 		System.out.println(result);
 	}
 
