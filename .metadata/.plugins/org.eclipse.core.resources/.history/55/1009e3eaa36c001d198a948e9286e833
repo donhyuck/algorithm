@@ -22,13 +22,19 @@ public class Solution {
 	public int[] solution(int[] arr) {
 
 		ArrayList<Integer> arrlist = new ArrayList<>();
+
+		int count = 0;
 		
-		int count = arr[0];
-		arrlist.add(arr[0]);
+		arrlist.add(arr[count]);
 
 		for (int i = 1; i < arr.length; i++) {
 
-			if (arr[i] != arr[i-1]) {
+			if (arr[0] != arr[1]) {
+				arrlist.add(arr[0]);
+				count = arr[i];
+			}
+
+			if (arr[i] != count) {
 				arrlist.add(arr[i]);
 				count = arr[i];
 			}

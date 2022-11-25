@@ -23,10 +23,12 @@ public class Solution {
 
 		ArrayList<Integer> arrlist = new ArrayList<>();
 		
-		int count = arr[0];
-		arrlist.add(arr[0]);
+		int count = -1;
 
 		for (int i = 1; i < arr.length; i++) {
+			
+			arrlist.add(arr[0]);
+			count = arr[0];
 
 			if (arr[i] != arr[i-1]) {
 				arrlist.add(arr[i]);

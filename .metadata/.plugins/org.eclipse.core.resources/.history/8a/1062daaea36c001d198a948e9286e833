@@ -14,7 +14,7 @@ public class Solution {
 		System.out.println(result);
 
 		// 테스트 2
-		int[] inputNum2 = new int[] { 4, 4, 4, 3, 3 };
+		int[] inputNum2 = { 4, 4, 4, 3, 3 };
 		result = test.solution(inputNum2);
 		System.out.println(result);
 	}
@@ -22,13 +22,17 @@ public class Solution {
 	public int[] solution(int[] arr) {
 
 		ArrayList<Integer> arrlist = new ArrayList<>();
-		
-		int count = arr[0];
-		arrlist.add(arr[0]);
+
+		int count = -1;
 
 		for (int i = 1; i < arr.length; i++) {
 
-			if (arr[i] != arr[i-1]) {
+			if (arr[0] != arr[1]) {
+				arrlist.add(arr[0]);
+				count = arr[i];
+			}
+
+			if (arr[i] != count) {
 				arrlist.add(arr[i]);
 				count = arr[i];
 			}
