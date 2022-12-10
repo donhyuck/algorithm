@@ -1,5 +1,11 @@
 package Stack_Queue.function_development;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 public class Solution {
 	public static void main(String[] args) {
 
@@ -12,7 +18,7 @@ public class Solution {
 		result = test.solution(inputProgresses1, inputSpeeds1);
 
 		for (int i = 0; i < result.length; i++) {
-			System.out.print("result1 : " + result[i]);
+			System.out.print(result[i]);
 		}
 
 		System.out.println();
@@ -23,12 +29,48 @@ public class Solution {
 		result = test.solution(inputProgresses2, inputSpeeds2);
 
 		for (int i = 0; i < result.length; i++) {
-			System.out.print("result2 : " + result[i]);
+			System.out.print(result[i]);
 		}
 	}
 
 	public int[] solution(int[] progresses, int[] speeds) {
-		int[] answer = { 2 };
+
+		Queue<Integer> queue = new LinkedList<>();
+		int remainedDays = 0;
+
+		// 남은 작업량과 작업속도로 각각 남은 일수를 queue에 add
+		for (int i = 0; i < progresses.length; i++) {
+			remainedDays = (int) Math.ceil((100.0 - progresses[i]) / speeds[i]);
+			queue.add(remainedDays);
+		}
+		
+		System.out.println(queue);
+
+		List<Integer> answerList = new ArrayList<>();
+
+		int topWork = queue.peek(); // 앞선에 있는 작업을 기준
+		int count = 0;
+
+		// 큐 객체의 작업량이 100이 되는 시점을 확인
+		for (int i : queue) {
+			if (topWork >= i) {
+				count++;
+			} else {
+				answerList.add(count); // 결과저장
+				topWork = i; // 기준갱신
+				count = 1;
+			}
+		}
+
+		answerList.add(count);
+
+		// List -> int[] 변환
+		int[] answer = new int[answerList.size()];
+
+		for (int i = 0; i < answerList.size(); i++) {
+			answer[i] = answerList.get(i);
+		}
+
 		return answer;
 	}
 }
