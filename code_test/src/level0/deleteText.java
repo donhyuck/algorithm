@@ -1,8 +1,8 @@
-package level1;
+package level0;
 
 /**
- * 문자열 my_string과 문자 letter이 매개변수로 주어집니다. 
- * my_string에서 letter를 제거한 문자열을 return하도록 solution 함수를 완성해주세요.
+ * 문자열 my_string과 문자 letter이 매개변수로 주어집니다. my_string에서 letter를 제거한 문자열을 return하도록
+ * solution 함수를 완성해주세요.
  */
 public class deleteText {
 
@@ -16,7 +16,7 @@ public class deleteText {
 		letter = "f";
 		result = solution(my_string, letter);
 		System.out.println("test1 :" + result);
-		
+
 		// test2
 		my_string = "BCBdbe";
 		letter = "B";
@@ -25,16 +25,16 @@ public class deleteText {
 	}
 
 	public static String solution(String my_string, String letter) {
-        String answer = "";
-        
-        for (int i = 0; i< my_string.length(); i++) {
-        	if (my_string.charAt(i) != letter.charAt(0)) {
-        		answer += my_string.charAt(i);
-        	}
-        }
-        return answer;
-    }
-	
+		String answer = "";
+
+		for (int i = 0; i < my_string.length(); i++) {
+			if (my_string.charAt(i) != letter.charAt(0)) {
+				answer += my_string.charAt(i);
+			}
+		}
+		return answer;
+	}
+
 	// 다른 풀이
 //	public static String solution(String my_string, String letter) {
 //        String answer = "";
